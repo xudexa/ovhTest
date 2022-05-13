@@ -35,7 +35,7 @@ func (ts *TodosStore) AddTodoInMemory(t Todo) {
 
 func (ts *TodosStore) CompleteTodoInMemory(id string) {
 	todo := ts.todos[id]
-	todo.Completed = true
+	todo.Completed = !todo.Completed
 	todo.CompletedAt = time.Now()
 	ts.todos[id] = todo
 

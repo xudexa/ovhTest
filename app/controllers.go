@@ -90,6 +90,8 @@ func TodoIsDone(w http.ResponseWriter, req *http.Request) {
 
 	CompleteTodo(id)
 
+	ReturnResponse(w, http.StatusAccepted, id)
+
 }
 
 func DeleteTodo(w http.ResponseWriter, req *http.Request) {
@@ -99,6 +101,7 @@ func DeleteTodo(w http.ResponseWriter, req *http.Request) {
 
 	RemoveTodo(id)
 
+	ReturnResponse(w, http.StatusAccepted, id)
 }
 
 func PrepareHeaders(w http.ResponseWriter, statusCode int) {

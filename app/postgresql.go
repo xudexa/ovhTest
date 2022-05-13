@@ -52,7 +52,7 @@ func CompleteTodoInPostgresql(id string) {
 
 	dbTransac := db.GetInstance().Begin()
 
-	todo.Completed = true
+	todo.Completed = !todo.Completed
 	todo.CompletedAt = time.Now()
 
 	err = dbTransac.Model(&todo).Where("id = ?", id).Updates(todo).Error
